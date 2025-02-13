@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budeš moje Valentýnka?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebf0;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #noBtn {
+            position: absolute;
+        }
+
+        /* Kontejner pro kytici */
+        .bouquet {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%) rotateY(0deg);
+            animation: rotateBouquet 5s linear infinite;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes rotateBouquet {
+            from { transform: translate(-50%, -50%) rotateY(0deg); }
+            to { transform: translate(-50%, -50%) rotateY(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budeš moje Valentýnka? ❤️</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Roses_Bouquet.jpg/640px-Roses_Bouquet.jpg" 
+             alt="Kytice růží" class="bouquet">
+        <br><br>
+        <button id="yesBtn">Ano</button>
+        <button id="noBtn">Ne</button>
+        <p id="response"></p>
+    </div>
+
+    <script>
+        document.getElementById("yesBtn").addEventListener("click", function() {
+            document.getElementById("response").innerText = "Jupí! ❤️ Nemůžu se dočkat!";
+        });
+
+        document.getElementById("noBtn").addEventListener("mouseover", function() {
+            let x = Math.random() * window.innerWidth - 100;
+            let y = Math.random() * window.innerHeight - 50;
+            this.style.left = x + "px";
+            this.style.top = y + "px";
+        });
+    </script>
+</body>
+</html>
